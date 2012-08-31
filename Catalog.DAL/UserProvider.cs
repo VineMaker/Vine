@@ -49,5 +49,25 @@
                 db.SubmitChanges();
             }
         }
+
+        public bool IsExist(string login)
+        {
+            using (var db = new CatalogDataContext())
+            {
+                var user = db.Users.SingleOrDefault(u => String.CompareOrdinal(u.Email, login) == 0);
+                return user != null;
+            }
+        }
+
+        //public bool Authenticate(string login, string password, out User user)
+        //{
+        //    using (var db = new CatalogDataContext())
+        //    {
+        //        user = db.Users.SingleOrDefault(
+        //                u => u.Email == login && u.Password == password.GetHashCode());
+
+        //        return user != null;
+        //    }
+        //}
     }
 }
