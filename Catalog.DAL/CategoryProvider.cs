@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Globalization;
     using System.Linq;
 
     /// <summary>
@@ -26,6 +25,14 @@
             }
         }
 
+        public List<Category> GetAll()
+        {
+            using (var db = new CatalogDataContext())
+            {
+                return db.Categories.ToList();
+            }
+        }
+
         public void Delete(int id)
         {
             using (var db = new CatalogDataContext())
@@ -38,6 +45,7 @@
                     throw new Exception(string.Format("Category with id = {0} not found in database", id));
                 }
 
+                //todo: if needed add removing products for these categories
                 db.Categories.DeleteAllOnSubmit(subCategories);
                 db.Categories.DeleteOnSubmit(category);
                 db.SubmitChanges();

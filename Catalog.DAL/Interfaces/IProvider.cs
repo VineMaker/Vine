@@ -19,9 +19,11 @@ namespace Catalog.DAL
     /// </typeparam>
     public interface IProvider<T>
     {
-        void Add(T category);
-
         T Get(int id);
+
+        List<T> GetAll();
+
+        void Add(T item);
 
         void Delete(int id);
     }
