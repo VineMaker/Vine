@@ -5,7 +5,7 @@
             enableLocalization="true">
 
   <mvcSiteMapNode title="$resources:Menu,Home" controller="Home" action="Index">
-      <mvcSiteMapNode title="$resources:Menu,Vine" controller="Home" action="Index">
+      <mvcSiteMapNode title="$resources:Menu,Vine" controller="Vine" action="GetAll">
           <mvcSiteMapNode title="$resources:Menu,Vine" controller="Home" action="Index" dynamicNodeProvider="Catalog.Helpers.VineDynamicNodeProvider, Catalog" />
       </mvcSiteMapNode>
       <mvcSiteMapNode title="$resources:Menu,Search" controller="Home" action="Index"/>
